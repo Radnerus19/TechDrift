@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 0;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  padding: 20px;
+}
+
+form{
+  width: 300px;
+  margin: auto;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password], select {
+  width: 100%;
+  height: 100%;
+  align-content: flex-start;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+</style>
+<script>
+//   var jsonList = {"Table" : [{"stateid" : "2","statename" : "Tamilnadu"},
+//                 {"stateid" : "3","statename" : "Karnataka"},
+//                 {"stateid" : "4","statename" : "Andaman and Nicobar"},
+//                  {"stateid" : "5","statename" : "Andhra Pradesh"},
+//                  {"stateid" : "6","statename" : "Arunachal Pradesh"}]}[
+var jsonList= {"Table" : [{
+"code": "AN",
+"name": "Andaman and Nicobar Islands"
+},
+{
+"code": "AP",
+"name": "Andhra Pradesh"
+},
+{
+"code": "AR",
+"name": "Arunachal Pradesh"
+},
+{
+"code": "AS",
+"name": "Assam"
+},
+{
+"code": "BR",
+"name": "Bihar"
+},
+{
+"code": "CG",
+"name": "Chandigarh"
+},
+{
+"code": "CH",
+"name": "Chhattisgarh"
+},
+{
+"code": "DH",
+"name": "Dadra and Nagar Haveli"
+},
+{
+"code": "DD",
+"name": "Daman and Diu"
+},
+{
+"code": "DL",
+"name": "Delhi"
+},
+{
+"code": "GA",
+"name": "Goa"
+},
+{
+"code": "GJ",
+"name": "Gujarat"
+},
+{
+"code": "HR",
+"name": "Haryana"
+},
+{
+"code": "HP",
+"name": "Himachal Pradesh"
+},
+{
+"code": "JK",
+"name": "Jammu and Kashmir"
+},
+{
+"code": "JH",
+"name": "Jharkhand"
+},
+{
+"code": "KA",
+"name": "Karnataka"
+},
+{
+"code": "KL",
+"name": "Kerala"
+},
+{
+"code": "LD",
+"name": "Lakshadweep"
+},
+{
+"code": "MP",
+"name": "Madhya Pradesh"
+},
+{
+"code": "MH",
+"name": "Maharashtra"
+},
+{
+"code": "MN",
+"name": "Manipur"
+},
+{
+"code": "ML",
+"name": "Meghalaya"
+},
+{
+"code": "MZ",
+"name": "Mizoram"
+},
+{
+"code": "NL",
+"name": "Nagaland"
+},
+{
+"code": "OR",
+"name": "Odisha"
+},
+{
+"code": "PY",
+"name": "Puducherry"
+},
+{
+"code": "PB",
+"name": "Punjab"
+},
+{
+"code": "RJ",
+"name": "Rajasthan"
+},
+{
+"code": "SK",
+"name": "Sikkim"
+},
+{
+"code": "TN",
+"name": "Tamil Nadu"
+},
+{
+"code": "TS",
+"name": "Telangana"
+},
+{
+"code": "TR",
+"name": "Tripura"
+},
+{
+"code": "UP",
+"name": "Uttar Pradesh"
+},
+{
+"code": "UK",
+"name": "Uttarakhand"
+},
+{
+"code": "WB",
+"name": "West Bengal"
+}
+]}
+</script>
+<script>
+  $(document).ready(function(){
+  var listItems= "";
+  for (var i = 0; i < jsonList.Table.length; i++){
+    listItems+= "<option value='" + jsonList.Table[i].code + "'>" + jsonList.Table[i].name + "</option>";
+  }
+  $("#state").html(listItems);
+  }); 
+</script>
+</head>
+<body ng-app="">
+  <video autoplay muted loop id="myVideo">
+    <source src="bg.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="content" >
+  <center>
+<form action="/signup" ng-controller="ngpatternCtrl" name="reg" novalidate >
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+    
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" ng-model="name" ng-pattern="/^[A-Za-z]+$/" required>
+
+    <span style="color:Red" ng-show="reg.name.$touched && reg.name.$invalid">{{name}}</span>
+    <span style="color:Red" ng-show="reg.name.$dirty && reg.name.$error.pattern"></span>
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+    <span style="color:red" ng-show="reg.email.$dirty && reg.email.$invalid">
+      <span ng-show="reg.email.$error.required"></span>
+      <span ng-show="reg.email.$error.email"></span>
+      </span>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+    
+  
+  
+    <label for="state"><b>Select your state</b></label>
+      <select id="state" name="state" style="margin-bottom:15px"> </select>
+
+    <div class="clearfix">
+      <a href="/" ><button type="button" class="cancelbtn">Home</button></a>  
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+</div>
+</form>
+<!-- <script>
+  var app = angular.module('myApp', []);
+  app.controller('validateCtrl', function($scope) {
+    $scope.user = 'Varun Kumar';
+    $scope.email = 'varun.kumar@gmail.com';
+  });
+  </script> -->
+  
+</center>
+</body>
+</html>

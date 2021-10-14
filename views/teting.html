@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Techdrift - A Tech Monthly</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="android-chrome-512x512.png">
+<link rel="icon" type="image/png" sizes="16x16" href="android-chrome-512x512.png">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<!-- <link rel="stylesheet" href="bts.css">-->
+<style> 
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Raleway", sans-serif}
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url(".public/techwall4.jpeg");
+  background-image: url("techwall4.jpg");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+.right{
+    float:right
+}
+.head{
+color: white;
+}
+#tech{
+  font-size: 64px;
+}
+.buttonx {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 28px;
+  color: #FFFFFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.buttonx:after {
+  content: "";
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+.buttonx:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.button {
+  
+  
+  background-color: white;
+  border: none;
+  color: gray;
+  padding: 32px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 16px;
+  opacity:0.6;
+}
+.bt :hover{
+opacity: 100%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+}
+li{
+    
+    float: left;
+}
+
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #d9d9d9;
+}
+
+.ispans{ 
+  padding-bottom: 5px; 
+  display: inline-block; 
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.5em;
+  color: white;
+}
+.iall{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffff99;
+
+}
+.icontainer{
+  position: relative;
+  padding: 5px;
+}
+.icontainer .icard{
+  position: relative;
+  width: 320px;
+  height: 500px;
+  background:#ad33ff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.icontainer .icard:before{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffd700;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.3s ease-in-out;
+}
+.icontainer .icard:hover:before{
+  clip-path: circle(300px at 80% -20%);
+}
+.icontainer .icard:after{
+  content: 'PLANS';
+  color: grey;
+  position: absolute;
+  top: 30%;
+  left: -5%;
+  font-size: 7em;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.09);
+
+}
+.icontainer .icard .iimg{
+  position: absolute;
+  transform: translateY(-50%);
+  z-index: 10000;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+}
+.iimg{
+  position: absolute;
+  width: 100px;
+  left: 10%;
+  transform: translate(-0%,-50%) rotateY(180deg) rotate(25deg);
+
+}
+.icontainer .icard:hover .iimg{
+  transform: translateY(-75%);
+}
+.icontainer .icard .icontent{
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: 1.1s;
+  z-index: 10;
+  
+}
+
+.icontainer .icard .icontent h2{
+  position: relative;
+  font-weight: 600;
+  font-size: 5em;
+  letter-spacing: 1px;
+  color: white;
+  font-style: italic;
+  transition: 1s;
+}
+.icontainer .icard:hover .icontent h2{
+  font-size: 4em;
+  transform: translateY(-120px);
+  transition: 0.5 ease-in-out;
+}
+.icontainer .icard .icontent .iplans{
+  opacity: 0;  
+  transition: 1s ease-in-out;
+}
+.icontainer .icard:hover .icontent .iplans{
+  transform: translateY(-6  0%);
+  opacity: 1;
+  transition: 1s ease-in-out;
+}
+
+</style>
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+</script>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div >
+  <div>
+    <ul>
+    <li><a href="#home" >TECHDRIFT</a></li>
+    <!-- Right-sided navbar links -->
+    <div class="right">
+      <li>
+        <a href="/login"><i class="fa fa-bars"></i> LOGIN</a> </li>
+        
+        <div id="id01" class="modal">
+          
+          <!--<form class="modal-content animate" action="/login" method="post">
+            <div class="imgcontainer">
+              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <img src="img_avatar.png" alt="Avatar" class="avatar"> 
+              <h2>Welcome to TechDrift ! </h2>
+            </div>
+        
+            <div class="container">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" required>
+        
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+                
+              <button type="submit">Login</button>&nbsp; &nbsp; 
+              <a href="register.html">Sign Up</a><br>
+
+              <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+              
+            </div>
+        
+            <div class="container" style="background-color:#f1f1f1">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+          </form>-->
+        </div>
+      <li><a href="#about" ><i class="fa fa-home"></i> ABOUT</a></li>
+      <li><a href="#work" ><i class="fa fa-th"></i> WORK</a></li>
+      <li><a href="#pricing"><i class="fa fa-usd"></i> PRICING</a></li>
+      <li><a href="#contact"><i class="fa fa-envelope"></i> CONTACT</a></li>
+    </div></ul>
+    
+  </div>
+</div>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1" width="100%" height="100%">
+  <div class="head" style="padding:48px"><br><br><br>
+    <span id="tech">Tech deserves your attention</span><br><br>
+    <!-- <span >Tech deserves to be known </span><br> -->
+    <span style="font-size: 18px;">Stay informed on how the world changes with tech</span><br><br><br>
+    <button class="bt" style="padding: 14px 40px ;"><a href="#about" style="text-decoration: none;">Learn more and start today</a></button>
+  </div> 
+  <div style="padding:24px 48px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</header>
+
+<!-- Features -->
+<center>
+  <div style="padding:128px 16px; width: 100%; width: 100%;"id="about">
+    <h3 style="align-content: center;">ABOUT THIS WEBSITE</h3>
+    <p style="align-content: center; font-size: 18px;">Key features of our company</p>
+    <div style="margin-top:64px;align-content: center ;display: inline-block; width: 100%;">
+      <div style="width: 22%; align-self: center;display: inline-block;">
+        <i class="fa fa-desktop" style="margin-bottom: 16px;font-size: 64px;"></i>
+        <p style="font-size: 18px;">Digital fill-ins</p>
+        <p>The service gives you the option to receive the monthly magazines as an ebook as well for user convenience. </p> 
+      </div>
+      <div style="width: 22%;display: inline-block;">
+        <i class="fa fa-heart" style="margin-bottom: 16px;font-size: 64px;"></i>
+        <p style="font-size: 18px;">Passion</p>
+         <p>We strive to communicate with people through tech, for tech. This site is made with all our hearts. </p>
+      </div>
+      <div style="width: 22%;display: inline-block;">
+        <i class="fa fa-diamond" style="margin-bottom: 16px;font-size: 64px;"></i>
+        <p style="font-size:18px;">Design</p>
+        <p>We here are the most enthusiastic designers and strive to bring you the best experience with our work. </p>
+      </div>
+      <div style="width: 22%;display: inline-block;">
+        <i class="fa fa-cog" style="margin-bottom: 16px;font-size: 64px;"></i>
+        <p style="font-size: 18px;">Support</p>
+        <p>If you're stuck at any point, get help from us anytime by dialing up at 1800 380 3800</p>
+      </div>
+    </div>
+  </div>
+  </center>
+  
+<!-- Promo Section - "We know design" -->
+<div  style="padding:128px 16px; background-color: #ebebeb;">
+  <div>
+    <div>
+      <h3>We love tech.</h3>
+      <p>It's 2020 and technology developed everyday doesn't blow your mind? Get covered from smartphones to satellites. Witness the future with Techdrift</p>
+     
+    </div>
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+      
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+      
+            <div class="item active">
+              <img src="wallee.jpg" alt="Los Angeles" style="width:100%;">
+              <div class="carousel-caption">
+                <h3>TechDrift</h3>
+              </div>
+            </div>
+      
+            <div class="item">
+              <img src="wp.jpg" alt="Chicago" style="width:100%;">
+              <div class="carousel-caption">
+                <h3>TechDrift</h3>
+              </div>
+            </div>
+          
+            <div class="item">
+              <img src="wp1.png" alt="New York" style="width:100%;">
+              <div class="carousel-caption">
+                <h3>TechDrift</h3>
+      \        </div>
+            </div>
+        
+          </div>
+      
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- Promo Section "Statistics" -->
+
+  
+<!-- Work Section -->
+<center>
+  <div style="padding:128px 16px; width: 100%;" id="work">
+    <h3>Magazines</h3>
+    <p style="font-size: 18px ;">Here are some of the magazines we provide here at TechDrift</p>
+  
+  
+    <div style="margin-top:64px; display: inline-block; width: 100%;">
+      <div style="width: 20%;display: inline-block;">
+        <img src="mag1.jpg" style="width:100%; padding-bottom: 5px;" onclick="onClick(this)" class="w3-hover-opacity" alt="A microphone">
+      </div>
+      <div style="width: 20%;display: inline-block;">
+        <img src="mag2.jpg" style="width:100%; padding-bottom: 5px;" onclick="onClick(this)" class="w3-hover-opacity" alt="A phone">
+      </div>
+      <div style="width: 20%;display: inline-block;">
+        <img src="mag4.jpg" style="width:100%; padding-bottom: 5px;" onclick="onClick(this)" class="w3-hover-opacity" alt="A drone">
+      </div>
+      <div style="width: 20%;display: inline-block;">
+        <img src="mag3.jpg" style="width:100%; padding-bottom: 5px;" onclick="onClick(this)" class="w3-hover-opacity" alt="Soundbox">
+      </div>
+      </div>
+      <div style="width: 20%;display: inline-block;">
+        <img src="map5.jpg" style="width:100% ;padding-bottom: 5px;" onclick="onClick(this)" class="w3-hover-opacity" alt="A tablet">
+      </div>
+      <div style="width: 20%;display: inline-block;">
+        <img src="map6.jpg" style="width:100%; padding-bottom: 5px;" onclick="onClick(this)" class="w3-hover-opacity" alt="A camera">
+      </div>
+      <div style="width: 20%;display: inline-block;">
+        <img src="map7.jpg" style="width:100% ;padding-bottom: 5px;" onclick="onClick(this)" class="w3-hover-opacity" alt="A typewriter">
+      </div>
+      <div style="width: 20%;display: inline-block;">
+        <img src="map8.jpg" style="width:100% ;padding-bottom: 5px;" onclick="onClick(this)" class="w3-hover-opacity" alt="A tableturner">
+      </div>
+    </div>
+  </div>
+  </center>
+<!-- Modal for full size images on click-->
+<center>
+<div id="modal01" onclick="this.style.display='none'">
+  <span title="Close Image"><button class="buttonx">CLOSE</button></span>
+  <div>
+    <br> <img id="img01" >
+    <p id="caption"></p>
+  </div>
+</div>
+</center>
+
+<!-- Pricing Section -->
+<div id="pricing">
+<div class="iall">
+  <div class="icontainer">
+      <div class="icard">
+          
+          <div class="icontent">
+              <h2>Basic</h2> 
+              <div class="iplans">
+                  <span class="ispans"><b>5</b> Magazine</span><br>
+                  <span class="ispans"><b>5</b> Domains</span><br>
+                  <span class="ispans">Endless Support</span><br>
+                  <span class="ispans">No Event Links</span><br>
+                  <span class="ispans">$10 per month</span>
+                </div>
+          </div>
+      </div>
+  </div>
+  <div class="icontainer">
+      <div class="icard">
+          <div class="icontent">
+              <h2>Pro</h2> 
+              <div class="iplans">
+                  <span class="ispans"><b>10</b> Magazine</span><br>
+                  <span class="ispans"><b>10</b> Domains</span><br>
+                  <span class="ispans">Endless Support and E-books</span><br>
+                  <span class="ispans">Event links</span><br>
+                  <span class="ispans">$25 per month</span>
+
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="icontainer">
+      <div class="icard">
+          
+          <div class="icontent">
+              <h2>Premium</h2> 
+              <div class="iplans">
+                  <span class="ispans"><b>15</b> Magazine</span><br>
+                  <span class="ispans"><b>15</b> Domains</span><br>
+                  <span class="ispans">Endless Support and E-books</span><br>
+                  <span class="ispans">Event links and invites</span><br>
+                  <span class="ispans">$50 per month</span>
+
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>        
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTACT</h3>
+  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+  <div style="margin-top:48px">
+    <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Madurai, TN</p>
+    <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +91 9384298211</p>
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: techdrift@gmail.com</p>
+    <br>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-black" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+</script>
+
+</body>
+</html>
